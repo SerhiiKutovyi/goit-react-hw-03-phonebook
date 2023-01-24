@@ -9,6 +9,7 @@ export const Filter = ({ click, filter }) => {
       <FilterStyled>
         <label htmlFor={filterId}>Find contacts by name</label>
         <input
+          id={filterId}
           type="text"
           name="Find contacts by name"
           value={filter}

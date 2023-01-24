@@ -7,9 +7,20 @@ import { Filter } from './Filter/Filter';
 
 export class App extends Component {
   state = {
-    contacts: [],
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
     filter: '',
   };
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevState.contacts !== this.state.contacts) {
+  //     localStorage.setItem();
+  //   }
+  // }
 
   formSubmitHandler = data => {
     const newUser = {
@@ -25,7 +36,6 @@ export class App extends Component {
           contacts: [...prevState.contacts, newUser],
         };
       });
-      return;
     }
   };
 
@@ -34,13 +44,14 @@ export class App extends Component {
   };
 
   verification = () => {
-    if (!this.state.filter) {
-      return this.state.contacts;
+    const { filter, contacts } = this.state;
+    if (!filter) {
+      return contacts;
     } else {
-      return this.state.contacts.filter(
+      return contacts.filter(
         user =>
-          user.name.includes(this.state.filter) ||
-          user.number.includes(this.state.filter)
+          user.name.toLowerCase().includes(filter.toLowerCase()) ||
+          user.number.includes(filter)
       );
     }
   };
