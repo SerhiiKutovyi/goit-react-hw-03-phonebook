@@ -12,6 +12,8 @@ export const ContactStyled = styled.ul`
   }
 
   button {
+    padding: 2px 5px;
+    border-radius: 4px;
     background-color: coral;
     color: white;
   }

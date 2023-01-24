@@ -30,6 +30,7 @@ export const FormStyled = styled.form`
     max-width: 100px;
     background-color: blue;
     color: white;
+    border-radius: 4px;
   }
 
   li {
